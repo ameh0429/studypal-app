@@ -7,6 +7,9 @@ import { fileURLToPath } from 'url';
 dotenv.config();
 
 import { sequelize } from './models/index.js';
+import authRoutes from './routes/auth.js';
+
+
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -17,11 +20,15 @@ app.use(cors({
   origin: process.env.FRONTEND_URL || '*',
   credentials: true,
 }));
+
 app.use(express.json());
 
+// API Routes
+app.use('/api/auth', authRoutes);
+
 // Health Check
-app.get("/api/health", () => {
-    res.json({status: "Ok", timestamp: new Date().toIsoString()})
+app.get("/api/health", (req, res) => {
+    res.json({status: "Ok", timestamp: new Date().toISOString()})
 });
 
 // Serve frontend in production

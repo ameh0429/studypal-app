@@ -10,6 +10,7 @@ const sequelize = new Sequelize({
   username: process.env.DB_USER || 'postgres',
   password: process.env.DB_PASSWORD || '',
 //   logging: process.env.NODE_ENV === 'development' ? console.log : false,
+  logging: false,
   pool: { max: 5, min: 0, acquire: 30000, idle: 10000 },
 });
 
