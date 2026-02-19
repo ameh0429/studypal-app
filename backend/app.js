@@ -8,6 +8,7 @@ dotenv.config();
 
 import { sequelize } from './models/index.js';
 import authRoutes from './routes/auth.js';
+import examRoutes from './routes/exams.js';
 
 
 
@@ -25,6 +26,7 @@ app.use(express.json());
 
 // API Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/exams', examRoutes)
 
 // Health Check
 app.get("/api/health", (req, res) => {
