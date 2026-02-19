@@ -9,6 +9,7 @@ dotenv.config();
 import { sequelize } from './models/index.js';
 import authRoutes from './routes/auth.js';
 import examRoutes from './routes/exams.js';
+import { startCronJobs } from './services/cronService.js';
 
 
 
@@ -46,7 +47,7 @@ const start = async () => {
     console.log('Database connected');
     await sequelize.sync({ alter: true });
     console.log('Database synced');
-    // startCronJobs();
+    startCronJobs();
     app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
   } catch (err) {
     console.error('Failed to start:', err);
