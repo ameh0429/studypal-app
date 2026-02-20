@@ -9,6 +9,7 @@ dotenv.config();
 import { sequelize } from './models/index.js';
 import authRoutes from './routes/auth.js';
 import examRoutes from './routes/exams.js';
+import sessionRoutes from './routes/sessions.js';
 import { startCronJobs } from './services/cronService.js';
 
 
@@ -27,7 +28,9 @@ app.use(express.json());
 
 // API Routes
 app.use('/api/auth', authRoutes);
-app.use('/api/exams', examRoutes)
+app.use('/api/exams', examRoutes);
+app.use('/api/sessions', sessionRoutes);
+
 
 // Health Check
 app.get("/api/health", (req, res) => {
