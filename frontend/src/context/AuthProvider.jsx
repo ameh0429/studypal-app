@@ -1,7 +1,7 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { api } from '../utils/api.js';
+import { AuthContext } from './AuthContext.js';
 
-const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -12,7 +12,9 @@ export const AuthProvider = ({ children }) => {
     if (token) {
       api.get('/auth/me').then(setUser).catch(() => localStorage.removeItem('token')).finally(() => setLoading(false));
     } else {
-      setLoading(false);
+      // Use setTimeout to defer state update outside effect execution
+      const timer = setTimeout(() => setLoading(false), 0);
+      return () => clearTimeout(timer);
     }
   }, []);
 
@@ -36,4 +38,3 @@ export const AuthProvider = ({ children }) => {
   return <AuthContext.Provider value={{ user, loading, login, register, logout }}>{children}</AuthContext.Provider>;
 };
 
-export const useAuth = () => useContext(AuthContext);

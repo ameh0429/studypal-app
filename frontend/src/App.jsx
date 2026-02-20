@@ -35,7 +35,8 @@
 // export default App
 
 import { useState } from 'react';
-import { AuthProvider, useAuth } from './hooks/useAuth.jsx';
+import { useAuth } from './hooks/useAuth.js';
+import { AuthProvider } from './context/AuthProvider.jsx';
 import AuthPage from './pages/AuthPage.jsx';
 import DashboardPage from './pages/DashboardPage.jsx';
 import ExamsPage from './pages/ExamsPage.jsx';
@@ -45,7 +46,7 @@ function Nav() {
   const { user, logout } = useAuth();
   return (
     <nav className="nav">
-      <div className="nav-brand">📚 StudyPal</div>
+      <div className="nav-brand">StudyPal</div>
       <div className="nav-links">
         <span className="nav-user">{user?.name}</span>
         <button className="btn btn-ghost btn-sm" onClick={logout}>Sign out</button>
