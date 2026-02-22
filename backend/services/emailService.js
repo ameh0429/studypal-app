@@ -35,7 +35,7 @@ export const sendDailyReminder = async ({ to, name, sessions }) => {
   const html = `
   <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
     <div style="background:#4f46e5;padding:24px;border-radius:8px 8px 0 0;">
-      <h1 style="color:#fff;margin:0;font-size:22px;">📚 StudyBuddy Daily Reminder</h1>
+      <h1 style="color:#fff;margin:0;font-size:22px;">StudyPal Daily Reminder</h1>
       <p style="color:#c7d2fe;margin:4px 0 0;">${today}</p>
     </div>
     <div style="background:#fff;padding:24px;border:1px solid #e5e7eb;border-top:none;border-radius:0 0 8px 8px;">
@@ -51,15 +51,15 @@ export const sendDailyReminder = async ({ to, name, sessions }) => {
         <tbody>${sessionRows}</tbody>
       </table>
       <p style="color:#6b7280;font-size:13px;margin-top:24px;">
-        Log in to <a href="${process.env.FRONTEND_URL || '#'}" style="color:#4f46e5;">StudyBuddy</a> to mark sessions as complete and track your progress.
+        Log in to <a href="${process.env.FRONTEND_URL || '#'}" style="color:#4f46e5;">StudyPal</a> to mark sessions as complete and track your progress.
       </p>
     </div>
   </div>`;
 
   await transporter.sendMail({
-    from: process.env.EMAIL_FROM || 'StudyBuddy <noreply@studybuddy.app>',
+    from: process.env.EMAIL_FROM || 'StudyPal <noreply@studypal.app>',
     to,
-    subject: `📚 Your Study Sessions for ${today}`,
+    subject: `Your Study Sessions for ${today}`,
     html,
   });
 };
