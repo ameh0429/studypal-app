@@ -27,7 +27,7 @@ export default function AuthPage() {
   return (
     <div className="auth-page">
       <div className="auth-card">
-        <div className="auth-title">📚 StudyBuddy</div>
+        <div className="auth-title">StudyPal - Exam Prep</div>
         <div className="auth-subtitle">{mode === 'login' ? 'Sign in to your account' : 'Create your account'}</div>
 
         {error && <div className="alert alert-error">{error}</div>}
