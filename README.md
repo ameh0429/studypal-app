@@ -175,7 +175,7 @@ The app is now live at `http://localhost:3000`.
 | `NODE_ENV` | Environment | `development` |
 | `DB_HOST` | PostgreSQL host | `localhost` |
 | `DB_PORT` | PostgreSQL port | `5432` |
-| `DB_NAME` | Database name | `studybuddy` |
+| `DB_NAME` | Database name | `studypal` |
 | `DB_USER` | Database user | `postgres` |
 | `DB_PASSWORD` | Database password | `secret` |
 | `JWT_SECRET` | Secret for signing JWTs | `long_random_string` |
