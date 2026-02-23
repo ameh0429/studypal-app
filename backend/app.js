@@ -37,12 +37,6 @@ app.get("/api/health", (req, res) => {
     res.json({status: "Ok", timestamp: new Date().toISOString()})
 });
 
-// Serve frontend in production
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../frontend/dist')));
-  app.get('*', (req, res) => res.sendFile(path.join(__dirname, '../frontend/dist/index.html')));
-};
-
 // Start server
 const start = async () => {
   try {
@@ -59,76 +53,3 @@ const start = async () => {
 };
 
 start();
-
-
-// import express from 'express';
-// import cors from 'cors';
-// import dotenv from 'dotenv';
-// import path from 'path';
-// import { fileURLToPath } from 'url';
-
-// dotenv.config();
-
-// import { sequelize } from './models/index.js';
-// import authRoutes from './routes/auth.js';
-// import examRoutes from './routes/exams.js';
-// import sessionRoutes from './routes/sessions.js';
-// import { startCronJobs } from './services/cronService.js';
-
-// const __dirname = path.dirname(fileURLToPath(import.meta.url));
-// const app = express();
-// const PORT = process.env.PORT || 3001;
-
-// // Middleware
-// app.use(cors({
-//   origin: process.env.FRONTEND_URL || '*',
-//   credentials: true,
-// }));
-
-// app.use(express.json());
-
-// // API Routes
-// app.use('/api/auth', authRoutes);
-// app.use('/api/exams', examRoutes);
-// app.use('/api/sessions', sessionRoutes);
-
-// // Health Check
-// app.get("/api/health", (req, res) => {
-//   res.json({ status: "Ok", timestamp: new Date().toISOString() });
-// });
-
-// // Serve frontend in production
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static(path.join(__dirname, '../frontend/dist')));
-//   app.get('*', (req, res) =>
-//     res.sendFile(path.join(__dirname, '../frontend/dist/index.html'))
-//   );
-// }
-
-// // Start server with explicit logging
-// const start = async () => {
-//   console.log('Starting server...');
-//   console.log(`Environment: ${process.env.NODE_ENV}`);
-//   console.log(`Expected PORT: ${PORT}`);
-//   console.log(`Database URL present: ${!!process.env.DATABASE_URL}`);
-
-//   try {
-//     await sequelize.authenticate();
-//     console.log('Database connected');
-
-//     await sequelize.sync({ alter: true });
-//     console.log('Database synced');
-
-//     startCronJobs();
-//     console.log('Cron jobs started');
-
-//     app.listen(PORT, () => {
-//       console.log(`Server running on port ${PORT}`);
-//     });
-//   } catch (err) {
-//     console.error('Failed to start server:', err);
-//     process.exit(1);
-//   }
-// };
-
-// start();
