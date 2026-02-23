@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 3001;
 
 // Middleware
 app.use(cors({
-  origin: process.env.FRONTEND_URL || '*',
+  origin: 'https://studypal-app.vercel.app' || 'http://localhost:3000',
   credentials: true,
 }));
 
