@@ -185,14 +185,14 @@ The app is now live at `http://localhost:3000`.
 | `SMTP_SECURE` | Use TLS | `false` |
 | `SMTP_USER` | SMTP username/email | `you@gmail.com` |
 | `SMTP_PASS` | SMTP password/app password | `apppassword` |
-| `EMAIL_FROM` | Sender display | `StudyBuddy <you@gmail.com>` |
+| `EMAIL_FROM` | Sender display | `StudyPal <you@gmail.com>` |
 | `FRONTEND_URL` | Frontend origin for CORS | `http://localhost:3000` |
 
 ### Frontend (`frontend/.env`)
 
 | Variable | Description |
 |---|---|
-| `VITE_API_URL` | Backend API URL (only if separate deployment) |
+| `VITE_API_URL` | Backend API URL  |
 
 ---
 
