@@ -6,6 +6,7 @@ import DashboardPage from './pages/DashboardPage.jsx';
 import ExamsPage from './pages/ExamsPage.jsx';
 import UpcomingPage from './pages/UpcomingPage.jsx';
 
+
 function Nav() {
   const { user, logout } = useAuth();
   return (

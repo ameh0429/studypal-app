@@ -3,10 +3,7 @@ import { StudySession, Subject } from '../models/index.js';
 const DIFFICULTY_WEIGHT = { easy: 1, medium: 2, hard: 3 };
 const MAX_SESSIONS_PER_DAY = 3;
 
-/**
- * Generate a study plan for an exam.
- * Distributes sessions weighted by subject difficulty across available days.
- */
+// Generate a study plan for an exam.
 export const generateStudyPlan = async (exam, subjects) => {
   if (!subjects || subjects.length === 0) return;
 

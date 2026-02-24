@@ -6,7 +6,6 @@ import { sendDailyReminder } from './emailService.js';
 export const startCronJobs = () => {
   // Run every day at 8:00 AM server time
   cron.schedule('0 8 * * *', async () => {
-    // console.log('[Cron] Sending daily study reminders...');
     console.log('[Cron] Triggered at', new Date().toISOString());
     await sendReminders();
   }, { timezone: 'Africa/Lagos' });
